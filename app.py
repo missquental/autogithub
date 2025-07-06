@@ -1458,224 +1458,202 @@ requests"""
 
 def get_readme_content(repo_name):
     """Get README.md content"""
-    return f"""# {repo_name}
+    return f"""# {repo_name} - YouTube Live Streaming Platform
 
-🎥 **Advanced YouTube Live Streaming Platform**
+🎥 Advanced YouTube Live Streaming Platform with auto-deployment to Streamlit Cloud.
 
-A comprehensive Streamlit application for managing YouTube live streams with advanced features including OAuth authentication, stream management, and real-time monitoring.
+## Features
 
-## 🌟 Features
+- 🔐 Google OAuth Integration for YouTube API
+- 📺 YouTube Live Broadcast Creation & Management
+- 🔑 Automatic Stream Key Generation
+- 📹 Video Upload & Multi-format Support
+- 🎬 FFmpeg Integration for Live Streaming
+- 📊 Real-time Monitoring & Logging
+- 💾 SQLite Database for Persistent Storage
+- 🎨 Beautiful, Responsive UI
+- 🚀 Auto-deployment to Streamlit Cloud
 
-- **🔐 Google OAuth Integration**: Secure authentication with YouTube API
-- **📺 YouTube Live Management**: Create, manage, and monitor live broadcasts
-- **🎬 Stream Key Generation**: Automatic stream key generation for external software
-- **📊 Real-time Monitoring**: Live logs and streaming statistics
-- **💾 Persistent Storage**: SQLite database for logs and channel authentication
-- **🎥 Video Upload & Management**: Support for multiple video formats
-- **⚙️ Advanced Settings**: Comprehensive streaming configuration options
-- **📱 Responsive Design**: Mobile-friendly interface
+## Live Demo
 
-## 🚀 Live Demo
+Visit the live application: [Your App URL will be available after deployment]
 
-Visit the live application: [Your App URL will be here after deployment]
+## Setup Instructions
 
-## 📋 Prerequisites
-
-Before using this application, you'll need:
-
-1. **Google Cloud Project** with YouTube Data API v3 enabled
-2. **OAuth 2.0 Credentials** (Client ID and Client Secret)
-3. **YouTube Channel** with live streaming enabled
-4. **Video files** for streaming (MP4, FLV, AVI, MOV, MKV)
-
-## 🛠️ Setup Instructions
-
-### 1. Google Cloud Setup
-
-1. Go to [Google Cloud Console](https://console.cloud.google.com/)
-2. Create a new project or select existing one
-3. Enable YouTube Data API v3
-4. Create OAuth 2.0 credentials:
-   - Go to APIs & Services → Credentials
-   - Create OAuth 2.0 Client ID
-   - Add your Streamlit app URL to authorized redirect URIs
-   - Download the JSON file
-
-### 2. YouTube Channel Setup
-
-1. Ensure your YouTube channel has live streaming enabled
-2. Go to YouTube Studio → Settings → Channel → Features
-3. Enable live streaming (may require phone verification)
-
-### 3. Application Usage
-
-1. **Upload OAuth JSON**: Use the sidebar to upload your Google OAuth credentials
-2. **Authenticate**: Click the authorization link and grant permissions
-3. **Upload Video**: Select or upload a video file for streaming
-4. **Configure Stream**: Set title, description, tags, and other settings
-5. **Create Live Stream**: Use "Create YouTube Live" for full broadcast setup
-6. **Start Streaming**: Click "Start Streaming" to begin
-
-## 🔧 Local Development
-
-1. **Clone the repository**:
+### 1. Clone the repository:
 ```bash
 git clone https://github.com/yourusername/{repo_name}.git
 cd {repo_name}
 ```
 
-2. **Install dependencies**:
+### 2. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-3. **Install FFmpeg** (required for streaming):
+### 3. System dependencies (for local development):
 ```bash
 # Ubuntu/Debian
-sudo apt update && sudo apt install ffmpeg
+sudo apt-get install ffmpeg
 
 # macOS
 brew install ffmpeg
 
 # Windows
-# Download from https://ffmpeg.org/download.html
+# Download FFmpeg from https://ffmpeg.org/download.html
 ```
 
-4. **Run the application**:
+### 4. Google OAuth Setup:
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project or select existing one
+3. Enable YouTube Data API v3
+4. Create OAuth 2.0 credentials
+5. Download the JSON file
+6. Upload it in the application
+
+### 5. Run the application:
 ```bash
 streamlit run app.py
 ```
 
-## 📁 Project Structure
+## Application Features
+
+### 🔐 Authentication
+- Google OAuth 2.0 integration
+- YouTube API authentication
+- Persistent channel storage
+- Multiple account support
+
+### 📺 Live Streaming
+- Create YouTube Live broadcasts
+- Generate stream keys automatically
+- Configure stream settings (title, description, tags, privacy)
+- Support for Shorts mode (720x1280)
+- Custom RTMP URL support
+
+### 📹 Video Management
+- Upload videos (MP4, FLV, AVI, MOV, MKV)
+- Select from existing video files
+- Real-time video processing
+- Multiple format support
+
+### 🎬 FFmpeg Integration
+- High-quality streaming with FFmpeg
+- Configurable bitrate and resolution
+- Real-time encoding
+- Stream monitoring and logging
+
+### 📊 Monitoring & Logging
+- Real-time streaming logs
+- SQLite database for persistent storage
+- Session management
+- Error tracking and reporting
+- Export logs functionality
+
+## File Structure
 
 ```
 {repo_name}/
 ├── app.py              # Main Streamlit application
 ├── requirements.txt    # Python dependencies
-├── packages.txt        # System packages (FFmpeg)
+├── packages.txt        # System dependencies (FFmpeg)
 ├── README.md          # This documentation
 └── streaming_logs.db  # SQLite database (created automatically)
 ```
 
-## 🎯 Key Features Explained
+## Configuration
 
-### 🔑 Stream Key Management
-- **Get Stream Key Only**: For use with external software (OBS, etc.)
-- **Create YouTube Live**: Full broadcast setup with YouTube Studio integration
-- **View Existing Streams**: Manage and reuse existing broadcasts
+### YouTube API Setup
+1. Enable YouTube Data API v3 in Google Cloud Console
+2. Create OAuth 2.0 credentials
+3. Add authorized redirect URIs
+4. Download credentials JSON file
 
-### 📊 Monitoring & Logging
-- **Real-time Logs**: Live FFmpeg output and application logs
-- **Session History**: Persistent logging with SQLite database
-- **Export Functionality**: Download logs for analysis
+### Stream Settings
+- **Title**: Stream title (max 100 characters)
+- **Description**: Stream description (max 5000 characters)
+- **Tags**: Comma-separated tags for discovery
+- **Category**: YouTube video category
+- **Privacy**: Public, Unlisted, or Private
+- **Made for Kids**: COPPA compliance setting
 
-### ⚙️ Advanced Configuration
-- **Stream Settings**: Title, description, tags, category, privacy
-- **Technical Options**: Bitrate, resolution, frame rate
-- **Monetization**: Enable ads, Super Chat, and other features
+### Technical Settings
+- **Resolution**: 720p, 1080p, 1440p
+- **Bitrate**: 1500k, 2500k, 4000k, 6000k
+- **Frame Rate**: 24, 30, 60 FPS
+- **Shorts Mode**: 720x1280 vertical format
 
-## 🔐 Security Features
+## Deployment
 
-- **Secure Authentication**: OAuth 2.0 with Google
-- **Persistent Sessions**: Saved channel authentication
-- **Protected Stream Keys**: Password-masked inputs
-- **Database Encryption**: Secure storage of sensitive data
-
-## 📱 Supported Formats
-
-### Video Files
-- MP4, FLV, AVI, MOV, MKV
-- Automatic format detection
-- Upload support up to reasonable file sizes
-
-### Streaming Protocols
-- RTMP (YouTube Live)
-- Custom RTMP endpoints
-- Multiple quality settings
-
-## 🚀 Deployment
-
-This application is automatically deployed to Streamlit Cloud with:
-
-- **Auto-deployment**: Updates on every GitHub push
-- **System Dependencies**: FFmpeg automatically installed
-- **Persistent Storage**: SQLite database maintained across deployments
-- **Environment Variables**: Secure credential management
+This application is automatically deployed to Streamlit Cloud whenever changes are pushed to the main branch.
 
 ### Manual Deployment Steps:
-
 1. Go to [share.streamlit.io](https://share.streamlit.io/)
 2. Click "New app"
 3. Select this repository
 4. Set main file path: `app.py`
 5. Click "Deploy!"
 
-## 🔧 Configuration Files
+## Dependencies
 
-### OAuth JSON Format
-```json
-{{
-  "web": {{
-    "client_id": "your-client-id",
-    "client_secret": "your-client-secret",
-    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-    "token_uri": "https://oauth2.googleapis.com/token",
-    "redirect_uris": ["your-app-url"]
-  }}
-}}
-```
+### Python Packages
+- `streamlit`: Web framework
+- `google-auth`: Google authentication
+- `google-api-python-client`: YouTube API client
+- `ffmpeg-python`: FFmpeg Python bindings
+- `opencv-python-headless`: Video processing
+- `pandas`: Data manipulation
+- `requests`: HTTP requests
 
-### Channel Configuration (Optional)
-```json
-{{
-  "channels": [
-    {{
-      "name": "Channel Name",
-      "stream_key": "your-stream-key",
-      "auth": {{
-        "access_token": "token",
-        "refresh_token": "refresh",
-        "client_id": "id",
-        "client_secret": "secret"
-      }}
-    }}
-  ]
-}}
-```
+### System Dependencies
+- `ffmpeg`: Video encoding and streaming
 
-## 🐛 Troubleshooting
+## Usage Guide
+
+### 1. Authentication
+1. Upload Google OAuth JSON file
+2. Click authorization link
+3. Grant YouTube permissions
+4. Return to application (automatic)
+
+### 2. Create Live Stream
+1. Fill out stream settings form
+2. Click "Create YouTube Live"
+3. Copy stream key or use automatic streaming
+
+### 3. Start Streaming
+1. Select or upload video file
+2. Configure technical settings
+3. Click "Start Streaming"
+4. Monitor real-time logs
+
+### 4. Manage Streams
+- View existing broadcasts
+- Reuse stream keys
+- Access YouTube Studio
+- Monitor stream status
+
+## Troubleshooting
 
 ### Common Issues
+1. **FFmpeg not found**: Install FFmpeg system dependency
+2. **Authentication failed**: Check OAuth credentials and scopes
+3. **Stream key invalid**: Regenerate stream key or create new broadcast
+4. **Video upload failed**: Check file format and size limits
 
-1. **Authentication Failed**
-   - Check OAuth credentials
-   - Verify redirect URIs
-   - Ensure YouTube API is enabled
+### Error Logs
+- Check real-time logs tab for streaming issues
+- Review session history for authentication problems
+- Export logs for detailed debugging
 
-2. **Streaming Errors**
-   - Verify FFmpeg installation
-   - Check stream key validity
-   - Ensure video file format is supported
+## Security Notes
 
-3. **Database Issues**
-   - Check file permissions
-   - Verify SQLite installation
-   - Clear browser cache
+- OAuth tokens are stored securely in session state
+- Stream keys are displayed as password fields
+- Database contains no sensitive authentication data
+- All API calls use secure HTTPS connections
 
-### Error Codes
-- **401**: Authentication required
-- **403**: Insufficient permissions
-- **404**: Resource not found
-- **500**: Server error
-
-## 📊 Performance Tips
-
-- **Video Quality**: Use appropriate bitrate for your connection
-- **File Size**: Compress large videos before upload
-- **Browser**: Use Chrome/Firefox for best compatibility
-- **Network**: Ensure stable internet connection for streaming
-
-## 🤝 Contributing
+## Contributing
 
 Feel free to submit issues and enhancement requests!
 
@@ -1685,28 +1663,28 @@ Feel free to submit issues and enhancement requests!
 4. Push to the branch
 5. Create a Pull Request
 
-## 📞 Support
+## Support
 
 For questions or issues:
 - Check the application's built-in help sections
 - Review YouTube API documentation
 - Create an issue in this repository
-- Check Streamlit community forums
+- Check FFmpeg documentation for streaming issues
 
-## 📜 License
+## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
-- **Google YouTube API**: For live streaming capabilities
-- **Streamlit**: For the amazing web framework
-- **FFmpeg**: For video processing and streaming
-- **SQLite**: For persistent data storage
+- Built with Streamlit framework
+- Uses YouTube Data API v3
+- FFmpeg for video processing
+- Google OAuth for authentication
 
 ---
 
-**Happy streaming!** 🎉📺
+**Happy Streaming!** 🎥✨
 
 *Auto-generated on {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}*
 """
