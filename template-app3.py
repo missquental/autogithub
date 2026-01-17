@@ -839,15 +839,7 @@ def main():
             st.success("✅ Predefined OAuth config loaded!")
             st.rerun()
         
-        # Manual OAuth Configuration
-        st.markdown("### 📤 Manual OAuth Setup")
-        oauth_file = st.file_uploader("Upload Google OAuth JSON", type=['json'], key="oauth_upload")
         
-        if oauth_file:
-            oauth_config = load_google_oauth_config(oauth_file)
-            if oauth_config:
-                st.success("✅ Google OAuth config loaded")
-                st.session_state['oauth_config'] = oauth_config
                 
         # Authorization Process
         if 'oauth_config' in st.session_state:
@@ -914,19 +906,7 @@ def main():
                     else:
                         st.error("Please enter the authorization code")
         
-        # JSON Configuration Upload
-        st.subheader("📄 Channel Configuration")
-        json_file = st.file_uploader("Upload JSON Configuration", type=['json'])
         
-        if json_file:
-            config = load_channel_config(json_file)
-            if config:
-                is_valid, message = validate_channel_config(config)
-                if is_valid:
-                    st.success("✅ Valid configuration loaded")
-                    st.session_state['channel_config'] = config
-                else:
-                    st.error(f"❌ Invalid configuration: {message}")
         
         # Log Management
         st.markdown("---")
