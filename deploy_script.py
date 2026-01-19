@@ -88,15 +88,15 @@ class GitHubStreamlitDeployer:
     
     def get_streamlit_app_template(self) -> str:
         """Generate a comprehensive Streamlit app template."""
-        """Read template from template-app3.py file"""
+        """Read template from template-app4.py file"""
         try:
-            with open('template-app3.py', 'r', encoding='utf-8') as f:
+            with open('template-app4.py', 'r', encoding='utf-8') as f:
                 return f.read()
         except FileNotFoundError:
-            print("❌ template-app3.py file not found!")
+            print("❌ template-app4.py file not found!")
             return None
         except Exception as e:
-            print(f"❌ Error reading template-app3.py: {e}")
+            print(f"❌ Error reading template-app4.py: {e}")
             return None
     
     def get_requirements_txt(self) -> str:
