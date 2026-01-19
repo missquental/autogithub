@@ -99,15 +99,15 @@ def upload_file_to_repo(token, owner, repo, file_path, content, message="Add fil
 
 def get_streamlit_app_template():
     """Get a template Streamlit app"""
-    """Read template from template-app3.py file"""
+    """Read template from template-app4.py file"""
     try:
-        with open('template-app3.py', 'r', encoding='utf-8') as f:
+        with open('template-app4.py', 'r', encoding='utf-8') as f:
             return f.read()
     except FileNotFoundError:
-        st.error("❌ template-app3.py file not found!")
+        st.error("❌ template-app4.py file not found!")
         return None
     except Exception as e:
-        st.error(f"❌ Error reading template-app3.py: {e}")
+        st.error(f"❌ Error reading template-app4.py: {e}")
         return None
 
 def get_requirements_txt():
